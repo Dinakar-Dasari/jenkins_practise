@@ -1,0 +1,43 @@
+pipeline{
+    agent {
+        label "AGENT-1"
+    }
+
+    options{
+        timeout()
+        disableConcurrentBuild()
+    }
+
+    environment{
+        DAY = "1"
+        PROJECT = "roboshop"
+    }
+
+    stages{
+        stage("pre-stage"){
+            deleteDir()
+        }
+        stage("stage-1"){
+            echo "stage-1"
+            echo "$DAY of $PROJECT "            
+        }
+
+        stage("stage-2"){
+            echo "second stage"
+        }
+    }
+
+    post{
+        always{
+            echo "anyways, Hello"
+        }
+
+        success{
+            echo "Hello, success"
+        }
+
+        failure{
+            echo "Hello, fail"
+        }
+    }
+}
