@@ -35,24 +35,15 @@ pipeline{
 
     post{
         always{
-            steps{
                 echo "anyways, Hello"
-
-            }
         }
 
         success{
-            steps{
-                echo "Hello, success"
-            }
-            
+                echo "Hello, success" 
         }
 
         failure{
-            steps{
                 echo "Hello, fail"
-            }
-            
         }
     }
 }
