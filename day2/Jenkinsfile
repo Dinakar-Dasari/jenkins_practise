@@ -27,6 +27,13 @@ pipeline {
 
         }
 
+    stage('Verify Workspace') {
+        steps {
+            sh 'pwd'
+            sh 'ls -R'
+        }
+    }        
+
         stage("version") {
             steps {
                 dir('day2') {
