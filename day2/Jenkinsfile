@@ -78,16 +78,15 @@ pipeline {
                 echo "will scan using trivy"
             }
         }
-
-    post {
-        always {
-            echo "All stages are done"
-        }
-
-        success {
-            echo "Hello, success"
-        }
     }
+
+    post { 
+        success { 
+            echo 'Hello Success'
+        }
+        failure { 
+            echo 'Hello Failure'
+        }
     }
 
 }
