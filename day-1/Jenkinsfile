@@ -15,29 +15,44 @@ pipeline{
 
     stages{
         stage("pre-stage"){
-            deleteDir()
+            steps{
+               deleteDir()     
+            }
         }
         stage("stage-1"){
-            echo "stage-1"
-            echo "$DAY of $PROJECT "            
+            steps{
+                echo "stage-1"
+                echo "$DAY of $PROJECT "  
+            }          
         }
 
         stage("stage-2"){
-            echo "second stage"
+            steps {
+                echo "second stage"
+            }
         }
     }
 
     post{
         always{
-            echo "anyways, Hello"
+            steps{
+                echo "anyways, Hello"
+
+            }
         }
 
         success{
-            echo "Hello, success"
+            steps{
+                echo "Hello, success"
+            }
+            
         }
 
         failure{
-            echo "Hello, fail"
+            steps{
+                echo "Hello, fail"
+            }
+            
         }
     }
 }
