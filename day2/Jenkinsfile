@@ -24,8 +24,13 @@ pipeline {
             steps {
                 deleteDir()
             }
-
         }
+
+    stage('Checkout') {
+        steps {
+            git branch: 'main', url: 'https://github.com/Dinakar-Dasari/jenkins_practise.git'
+        }
+    }
 
     stage('Verify Workspace') {
         steps {
